@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/img/logo.png'
 import './style.css';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -19,9 +20,6 @@ class Login extends Component {
     }
 
     submit() {
-        console.log(this.state.loginForm);
-        alert('Próxima página em construção!');
-        this.refreshPage();
     }
 
     setDataForm(event) {
