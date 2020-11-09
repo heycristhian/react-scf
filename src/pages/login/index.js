@@ -3,6 +3,22 @@ import Logo from '../../assets/img/logo.png'
 import './style.css';
 
 class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.submit = this.submit.bind(this);
+        this.state = {
+            form: {
+                email: '',
+                password: ''
+            }
+        }
+    }
+
+    submit() {
+        console.log('submit');
+    }
+
     render() {
         return (
             <div>
@@ -13,7 +29,7 @@ class Login extends Component {
                             <form>
                                 <input className="input input-email" type="text" name="email" placeholder="Email" />
                                 <input className="input input-password" type="text" name="password" placeholder="Password" />
-                                <a className="gradient-button">Acessar</a>
+                                <div onClick={this.submit} className="gradient-button">Acessar</div>
                             </form>
                         </div>
                     </div>
