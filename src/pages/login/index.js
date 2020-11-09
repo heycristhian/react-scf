@@ -6,17 +6,43 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        this.submit = this.submit.bind(this);
         this.state = {
-            form: {
+            loginForm: {
                 email: '',
                 password: ''
             }
         }
+
+        this.submit = this.submit.bind(this);
+        this.setDataForm = this.setDataForm.bind(this);
+        this.resetInput = this.resetInput.bind(this);
     }
 
     submit() {
-        console.log('submit');
+        console.log(this.state.loginForm);
+        alert('Próxima página em construção!');
+        this.refreshPage();
+    }
+
+    setDataForm(event) {
+        let loginForm = this.state.loginForm;
+        loginForm[event.target.name] = event.target.value;
+        this.setState({
+            loginForm: loginForm
+        })
+    }
+
+    resetInput() {
+        let loginForm = this.state.loginForm;
+        loginForm.password = '';
+        loginForm.email = '';
+        this.setState({
+            loginForm: loginForm
+        })
+    }
+
+    refreshPage() {
+        window.location.reload();
     }
 
     render() {
@@ -27,8 +53,8 @@ class Login extends Component {
                         <div className="content-form-login">
                             <img className="logo" src={Logo} alt="logo"></img>
                             <form>
-                                <input className="input input-email" type="text" name="email" placeholder="Email" />
-                                <input className="input input-password" type="text" name="password" placeholder="Password" />
+                                <input onChange={this.setDataForm} className="input input-email" type="text" name="email" placeholder="E-mail" />
+                                <input onChange={this.setDataForm} className="input input-password" type="password" name="password" placeholder="Senha" />
                                 <div onClick={this.submit} className="gradient-button">Acessar</div>
                             </form>
                         </div>
